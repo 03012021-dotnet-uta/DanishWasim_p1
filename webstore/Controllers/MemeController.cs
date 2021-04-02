@@ -1,4 +1,5 @@
-﻿using System;
+﻿// https://localhost:5001/api/meme/stores
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -143,5 +144,25 @@ namespace memesaver
             StatusCode(200);
             return stores;
         }
+
+
+        [HttpGet("inventories/{id}")]
+        public ActionResult<List<Store>> GetStoreInventory(int id)
+        {
+            if(!ModelState.IsValid)
+            {
+                return StatusCode(400);
+            }
+
+            List<Store> inventories = _business.GetInventories();
+
+            if(inventories == null || inventories.Count == 0)
+            {
+                return StatusCode(404);
+            }
+            StatusCode(200);
+            return inventories;
+        }
+
     }//end of class
 }//end of namespace

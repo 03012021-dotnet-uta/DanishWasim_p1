@@ -150,7 +150,10 @@ namespace BusinessLogic
             foreach (var repoStore in repoStoreList)
             {
                 
-                models.Store umState = new models.Store();
+                models.Store umState = new models.Store() {
+                    LocationId = repoStore.LocationId,
+                    LocationName = repoStore.LocationName
+                };
                 umStoreList.Add(umState);
             }
             return umStoreList;

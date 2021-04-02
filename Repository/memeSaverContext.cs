@@ -31,10 +31,12 @@ namespace Repository
 
 			modelBuilder.Entity<Store>(entity =>
             {
-                // entity.HasKey(e => e.StoreNumber)
-                //     .HasName("PK__stores__0BBE57CCD22ABEEB");
+                entity.HasKey(e => e.LocationId)
+                    .HasName("PK__Stores__E7FEA497E2CA8C16");
+					
 
                 entity.ToTable("Stores");
+
 
                 entity.Property(e => e.LocationId)
                     .ValueGeneratedNever()
@@ -46,7 +48,27 @@ namespace Repository
 
                 
             });
+			modelBuilder.Entity<Inventory>(entity =>
+            {
+                entity.HasKey(e => e.InventoryId)
+                    .HasName("PK__Stores__E7FEA497E2CA8C16");
+					
 
+                entity.ToTable("Inventory");
+
+
+                entity.Property(e => e.StoreId)
+                    .ValueGeneratedNever()
+                    .HasColumnName("StoreId");
+
+                entity.Property(e => e.Quantity)
+                    .HasMaxLength(50);
+
+				entity.Property(e => e.ProductId)
+                    .ValueGeneratedNever()
+                    .HasColumnName("ProductId");
+                
+            });
 		}
 
 		
