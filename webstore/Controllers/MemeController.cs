@@ -154,7 +154,7 @@ namespace memesaver
                 return StatusCode(400);
             }
 
-            List<Store> inventories = _business.GetInventories();
+            List<Store> inventories = _business.GetStores();
 
             if(inventories == null || inventories.Count == 0)
             {
