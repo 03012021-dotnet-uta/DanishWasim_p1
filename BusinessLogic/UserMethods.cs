@@ -1,6 +1,7 @@
 ﻿using System;
 using models;
 using Repository;
+using System.Collections.Generic;
 
 namespace BusinessLogic
 {
@@ -141,6 +142,34 @@ namespace BusinessLogic
             return true;
 
         }
+        public List<models.Store> GetStores()
+        {
+            List<models.Store> repoStoreList = _repolayer.GetStores();
+            List<models.Store> umStoreList = new List<models.Store>();
+
+            foreach (var repoStore in repoStoreList)
+            {
+                
+                models.Store umState = new models.Store();
+                umStoreList.Add(umState);
+            }
+            return umStoreList;
+        }
+
+        // public List<models.Goods> GetGoods(int storeNumber)
+        // {
+        //     List<Repository.Models.Store> storeList = _repolayer.GetStores();
+        //     List<UniversalModels.Store> umStoreList = new List<UniversalModels.Store>();
+
+        //     foreach (var repoStore in storeList)
+        //     {
+        //         decimal zipCode = repoStore.ZipCode ?? default(decimal);
+        //         UniversalModels.Store umState = new UniversalModels.Store(repoStore.StoreNumber,
+        //             repoStore.StoreName, repoStore.City, repoStore.StateName, zipCode, repoStore.StreetAddress);
+        //         umStoreList.Add(umState);
+        //     }
+        //     return umStoreList;
+        // }
 
 
     }// end of class

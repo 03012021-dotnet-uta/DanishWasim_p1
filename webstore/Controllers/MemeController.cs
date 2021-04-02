@@ -19,7 +19,7 @@ namespace memesaver
         private readonly UserMethods _business;
         public MemeController(UserMethods business)
         {
-            this._business = business;
+            _business = business;
         }
 
         [HttpPost("register")]
@@ -109,6 +109,39 @@ namespace memesaver
 
         }
 
+        // [HttpGet("goods/{storeNumber}")]
+        // public ActionResult<List<Good>> Goods(int storeNumber)
+        // {
+        //     if(!ModelState.IsValid)
+        //     {
+        //         return StatusCode(400); //Bad Request error
+        //     }
 
+        //     List<Good> products = _business.GetGoods(storeNumber);
+
+        //     if(goods == null || goods.Count == 0)
+        //     {
+        //         return StatusCode(404);
+        //     }
+        //     StatusCode(200);
+        //     return goods;
+        // }
+        [HttpGet("stores")]
+        public ActionResult<List<Store>> Stores()
+        {
+            if(!ModelState.IsValid)
+            {
+                return StatusCode(400);
+            }
+
+            List<Store> stores = _business.GetStores();
+
+            if(stores == null || stores.Count == 0)
+            {
+                return StatusCode(404);
+            }
+            StatusCode(200);
+            return stores;
+        }
     }//end of class
 }//end of namespace

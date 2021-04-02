@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using models;
+//using Repository.Models;
 
 namespace Repository
 {
@@ -81,7 +83,14 @@ namespace Repository
             // add addittional syeps before saving changes... based on changed needs.
             _context.SaveChanges();
         }
-
+        public List<Store> GetStores()
+        {
+            return _context.Stores.ToList();
+        }
+// public List<Part> GetProducts()
+//         {
+//             return _context.Parts.ToList();
+//         }
 
     }//end of class
 }// end of namespace

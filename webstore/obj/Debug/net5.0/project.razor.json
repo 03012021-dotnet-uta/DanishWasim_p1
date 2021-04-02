@@ -1,5 +1,5 @@
 {
-  "FilePath": "/Users/danish/revature/dan_e_store/estore/DanishWasim_p1/memesaver/memesaver.csproj",
+  "FilePath": "/Users/danish/revature/dan_e_store/estore/DanishWasim_p1/webstore/webstore.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "5.0",
@@ -15600,7 +15600,7 @@
     ],
     "CSharpLanguageVersion": 900
   },
-  "RootNamespace": "memesaver",
+  "RootNamespace": "webstore",
   "Documents": [],
   "SerializationFormat": "0.2"
 }
